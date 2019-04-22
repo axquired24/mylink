@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route("panel.dashboard");
+});
+
+Route::group(['prefix' => 'panel'], function() {
+    Route::get('dashboard', 'PanelController@dashboard')->name("panel.dashboard");
 });
