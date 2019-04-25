@@ -4,9 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Link;
+use App\User;
 
 class LinkController extends Controller
 {
+    public function publicSite(Request $request, $sitename) {
+        $user = User::where('sitename', $sitename)->firstOrFail();
+        return view('site.index', compact('user'));
+    }
+
+    public function linkClick(Request $request, $id) {
+        $link = Link::findOrFail($id);
+        $link->click_count += 1;
+        $link->last_click_at = \Carbon\Carbon::now();
+        $link->save();
+
+        return redirect()->to($link->url);
+    }
+
     public function list() {
         $userId = auth()->user()->id;
         $links = Link::where('user_id', $userId)->paginate(5);

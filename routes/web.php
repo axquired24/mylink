@@ -42,3 +42,6 @@ Route::group([
         Route::get('links/{id}/delete', 'LinkController@delete')->name("panel.links.delete");
     }
 );
+
+Route::get('site/{sitename}', 'LinkController@publicSite')->name('public.site');
+Route::get('link/{id}/click', 'LinkController@linkClick')->name('public.link.click');

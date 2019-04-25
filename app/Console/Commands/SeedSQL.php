@@ -72,7 +72,7 @@ class SeedSQL extends Command
         $user->password = bcrypt('123123');
         $user->sitename = str_slug($user->name);
         $user->save();
-        $this->ddInfo("user", $user->name);
+        $this->ddInfo("user", $user->name . " ({$user->email})");
 
         // create links
         $i = 1;
@@ -87,6 +87,8 @@ class SeedSQL extends Command
         $data->user_id = $user->id;
         $data->url = $this->faker->url;
         $data->name = $this->faker->city;
+        $data->click_count = $this->faker->numberBetween(10, 1000);
+        $data->last_click_at = \Carbon\Carbon::now();
         $data->save();
 
         $this->ddInfo("link", $data->url);

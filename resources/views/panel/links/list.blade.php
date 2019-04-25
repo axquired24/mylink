@@ -16,18 +16,24 @@
                     </a>
                 </div>
                 <div class="box-body">
-                    <table class="table table-responsive table-hover table-border">
+                    <table class="table table-responsive table-hover table-bordered">
                         <tr>
                             <td>ID</td>
                             <td>Links</td>
+                            <td>Click</td>
                             <td>Action</td>
                         </tr>
                         @foreach($links as $link)
                         <tr>
-                            <td>{{ $link->id }}</td>
+                            <td>#{{ $link->id }}</td>
                             <td>
                                 {{ $link->name }} <br>
                                 <small><a href="{{ $link->url }}" target="_blank">{{ $link->url }}</a></small>
+                            </td>
+                            <td>
+                                {{ $link->click_count }} Hit(s)
+                                <br />
+                                <small>Last Click on {{ $link->lastClickStr() }} </small>
                             </td>
                             <td>
                                 <a title="Edit" href="{{ route('panel.links.edit', ['id' => $link->id]) }}" class="btn btn-sm btn-primary">

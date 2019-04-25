@@ -38,6 +38,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('sitename') ? ' has-error' : '' }}">
+                            <label for="sitename" class="col-md-4 control-label">Sitename</label>
+
+                            <div class="col-md-6">
+                                <input id="sitename" type="text" class="form-control" name="sitename" placeholder="situsku" value="{{ old('sitename') }}" required>
+
+                                @if ($errors->has('sitename'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('sitename') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
