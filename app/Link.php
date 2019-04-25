@@ -12,6 +12,9 @@ class Link extends Model
     }
 
     public function lastClickStr($format='d F Y H:i A') {
+        if(empty($this->last_click_at)) {
+            return "-";
+        }
         return \Carbon\Carbon::parse($this->last_click_at)->format($format);
     }
 }

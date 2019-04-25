@@ -23,6 +23,19 @@
                             <td>Click</td>
                             <td>Action</td>
                         </tr>
+                        @if($links->isEmpty())
+                        <tr>
+                            <td align="center" colspan="4">
+                                <div style="padding: 2rem">
+                                    Let's create a new link &nbsp;
+                                    <a title="Add New" href="{{ route('panel.links.add') }}" class="btn btn-xs btn-success">
+                                        here <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endif
+
                         @foreach($links as $link)
                         <tr>
                             <td>#{{ $link->id }}</td>

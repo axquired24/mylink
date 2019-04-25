@@ -20,7 +20,7 @@ class CreateLinksTable extends Migration
             $table->string('url');
             $table->string('name');
             $table->integer('click_count')->default(0);
-            $table->dateTime('last_click_at')->useCurrent();
+            $table->dateTime('last_click_at')->nullable();
 
             $table->foreign('user_id')->on('users')->references('id')->onDelete('cascade');
             $table->timestamps();

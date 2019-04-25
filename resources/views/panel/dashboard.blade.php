@@ -22,6 +22,7 @@
             </div>
         </div>
 
+        @if(! $linkByPopularity->isEmpty())
         <div class="col-md-4">
             <div class="small-box bg-yellow">
                 <div class="inner">
@@ -39,7 +40,9 @@
                 </a>
             </div>
         </div>
+        @endif
 
+        @if(! $linkByRecent->isEmpty())
         <div class="col-md-4">
             <div class="small-box bg-blue">
                 <div class="inner">
@@ -57,6 +60,7 @@
                 </a>
             </div>
         </div>
+        @endif
     </div>
     {{-- /.row --}}
 
