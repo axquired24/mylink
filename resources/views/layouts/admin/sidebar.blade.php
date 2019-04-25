@@ -6,7 +6,7 @@
       <img src="{{ url('images/default/no-image.jpg') }}" class="img-circle" alt="User Image">
     </div>
     <div class="pull-left info">
-      <p>Admin </p>
+      <p>{{ auth()->user()->name }} </p>
       <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
     </div>
   </div>
@@ -15,14 +15,14 @@
   <ul class="sidebar-menu">
     <li class="header">NAVIGASI</li>
     <li class="treeview" id="menu_dashboard">
-      <a href="{{ url('ladmin/dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+      <a href="{{ url('panel/dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
     </li>
-    <li class="treeview" id="menu_gallery">
-      <a href="{{ url('ladmin/gallery/list') }}"><i class="fa fa-link"></i> <span>My Links</span></a>
+    <li class="treeview" id="menu_links">
+      <a href="{{ route('panel.links') }}"><i class="fa fa-link"></i> <span>My Links</span></a>
     </li>
     <li class="header">AKUN</li>
-    <li class="treeview" id="menu_gallery">
-      <a href="#"><i class="fa fa-user"></i> <span>Profile</span></a>
+    <li class="treeview" id="menu_profile">
+      <a href="#"><i class="fa fa-user"></i> <span>Edit Profile</span></a>
     </li>
     <li class="">
       <a href="#"
